@@ -1,0 +1,50 @@
+# Node modules
+node_modules/
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+# Dependency directories
+jspm_packages/
+# Environment files
+.env
+.env.local
+.env.*.local
+# Temporary files
+*.tmp
+*.swp
+# Build output
+dist/
+build/
+# Ignore any OS-specific or editor-specific files
+.DS_Store
+Thumbs.db
+# React specific
+.eslintcache
+*.cache
+.vscode/
+.idea/
+.sass-cache/
+# Testing
+coverage/
+.nyc_output/
+# Binaries
+*.exe
+*.out
+*.app
+# Miscellaneous
+*.log
+*.gz
+*.sql
+*.sqlite
+*.tgz
+*.zip
+# Except the db-init/init.sql file
+!db-init/init.sql
+
+# Production build (React frontend)
+frontend/build/
+# Production build (Node backend)
+backend/build/
+
