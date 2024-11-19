@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import { useSelector } from 'react-redux';
 import './App.css';
+import Auth from './Pages/auth/Auth.js';
+import Home from './Pages/home/Home';
+import Profile from './Pages/profile/Profile';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 function App() {
+
+  const user = useSelector((state) => state.authReducer.authData);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="blur" style={{ top: '-18%', right: '0' }}></div>
+      <div className="blur" style={{ top: '36%', left: '-8rem' }}></div>
+
+
+      <Routes>
+        <Route path='/' element={user ? <Navigate to='home' /> : <Navigate to='auth' />} />
+        <Route path='/home' element={user ? <Home /> : <Navigate to='../auth' />} />
+        <Route path='/auth' element={user ? <Navigate to='../home' /> : <Auth />} />
+        <Route path='/profile/:id' element={user ? <Profile /> : <Navigate to='../auth' />} />
+      </Routes>
+
     </div>
   );
 }
